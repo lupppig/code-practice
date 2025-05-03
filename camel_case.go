@@ -1,6 +1,7 @@
 package main
 
 import (
+	"regexp"
 	"strings"
 )
 
@@ -25,4 +26,11 @@ func ToCamelCase(s string) string {
 	}
 
 	return str
+}
+
+func ToCamelCase2(s string) string {
+	reg := regexp.MustCompile("[-_](.)")
+	return reg.ReplaceAllStringFunc(s, func(w string) string {
+		return strings.ToUpper(string(w[1:]))
+	})
 }
