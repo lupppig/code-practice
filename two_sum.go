@@ -39,9 +39,3 @@ func TwoSums(numbers []int, target int) [2]int {
 
 	return [2]int{-1, -1}
 }
-
-func main() {
-	arr := []int{1, 4, 5, 3, 2}
-	target := 6
-	fmt.Println(TwoSums(arr, target))
-}
