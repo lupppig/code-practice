@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func isValid(s string) bool {
 
 	// [] () {}  true
@@ -29,16 +27,16 @@ func isValid(s string) bool {
 	return len(stack) == 0
 }
 
-func main() {
-	fmt.Println(isValid("()") == true) // true
-	fmt.Println(isValid("([])"))       // true
-	fmt.Println(isValid("{[()]}"))     // true
-	fmt.Println(isValid("{[()]}}"))    // false
-	fmt.Println(isValid("({[]})"))     // true
-	fmt.Println(isValid("[{()}]"))     // true
-	fmt.Println(isValid("{({})}"))     // true
-	fmt.Println(isValid("(}"))         // false
-	fmt.Println(isValid("[(])"))       // false
-	fmt.Println(isValid("("))          // false
-	fmt.Println(isValid(""))           // false
-}
+// func main() {
+// 	fmt.Println(isValid("()") == true) // true
+// 	fmt.Println(isValid("([])"))       // true
+// 	fmt.Println(isValid("{[()]}"))     // true
+// 	fmt.Println(isValid("{[()]}}"))    // false
+// 	fmt.Println(isValid("({[]})"))     // true
+// 	fmt.Println(isValid("[{()}]"))     // true
+// 	fmt.Println(isValid("{({})}"))     // true
+// 	fmt.Println(isValid("(}"))         // false
+// 	fmt.Println(isValid("[(])"))       // false
+// 	fmt.Println(isValid("("))          // false
+// 	fmt.Println(isValid(""))           // false
+// }
