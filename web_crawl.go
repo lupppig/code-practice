@@ -30,6 +30,8 @@ func CheckUrlExists(url string) bool {
 	return ok
 }
 
+var mp sync.Map
+
 // Crawl uses fetcher to recursively crawl
 // pages starting with url, to a maximum of depth.
 func Crawl(url string, depth int, fetcher Fetcher) {
@@ -40,7 +42,7 @@ func Crawl(url string, depth int, fetcher Fetcher) {
 		return
 	}
 
-	if CheckUrlExists(url) {
+	if _, ol := mp.LoadOrStore(url, true); ol {
 		return
 	}
 
