@@ -34,6 +34,8 @@ var mp sync.Map
 
 // Crawl uses fetcher to recursively crawl
 // pages starting with url, to a maximum of depth.
+// sync.Pool can be use to reuse object
+
 func Crawl(url string, depth int, fetcher Fetcher) {
 	// TODO: Fetch URLs in parallel.
 	// TODO: Don't fetch the same URL twice.
