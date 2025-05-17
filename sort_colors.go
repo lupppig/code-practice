@@ -42,8 +42,8 @@ func merge(left, right []int) []int {
 	return sortedArray
 }
 
-func main() {
-	arr := []int{2, 0, 2, 1, 1, 0}
+// func main() {
+// 	arr := []int{2, 0, 2, 1, 1, 0}
 
-	sortColors(arr)
-}
+// 	sortColors(arr)
+// }
