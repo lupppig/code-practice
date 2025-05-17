@@ -78,9 +78,9 @@ func Crawl(url string, depth int, fetcher Fetcher) {
 	}
 }
 
-func main() {
-	Crawl("https://golang.org/", 4, fetcher)
-}
+// func main() {
+// 	Crawl("https://golang.org/", 4, fetcher)
+// }
 
 // fakeFetcher is Fetcher that returns canned results.
 type fakeFetcher map[string]*fakeResult
