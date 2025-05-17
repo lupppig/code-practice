@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"math"
 )
 
@@ -33,9 +32,4 @@ func generateSubsets(index int, nums []int, subArray []int, resultArr *[][]int) 
 		subArray = subArray[:len(subArray)-1]
 	}
 
-}
-
-func main() {
-	arr := []int{1, 2, 3}
-	fmt.Println(Subsets(arr))
 }
