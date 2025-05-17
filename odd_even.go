@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func goRoun() {
 	even := make(chan int)
 	odd := make(chan int)
 	done := make(chan bool)
