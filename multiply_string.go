@@ -77,9 +77,6 @@ func Multiply2(num1 string, num2 string) string {
 	return res
 }
 
-func main() {
-	fmt.Println(Multiply2("498828660196", "840477629533"))
-}
 
 /*
 *
