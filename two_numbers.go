@@ -68,35 +68,35 @@ func (l *ListNode) PrintNode() {
 	fmt.Println()
 }
 
-func main() {
-	node2 := Node{}
-	Lnn := &ListNode{Val: 9}
-	Lnn1 := &ListNode{Val: 9}
-	Lnn2 := &ListNode{Val: 9}
-	Lnn3 := &ListNode{Val: 9}
-	Lnn4 := &ListNode{Val: 9}
-	Lnn5 := &ListNode{Val: 9}
-	Lnn6 := &ListNode{Val: 9}
+// func main() {
+// 	node2 := Node{}
+// 	Lnn := &ListNode{Val: 9}
+// 	Lnn1 := &ListNode{Val: 9}
+// 	Lnn2 := &ListNode{Val: 9}
+// 	Lnn3 := &ListNode{Val: 9}
+// 	Lnn4 := &ListNode{Val: 9}
+// 	Lnn5 := &ListNode{Val: 9}
+// 	Lnn6 := &ListNode{Val: 9}
 
-	node2.Prepend(Lnn)
-	node2.Prepend(Lnn1)
-	node2.Prepend(Lnn2)
-	node2.Prepend(Lnn3)
-	node2.Prepend(Lnn4)
-	node2.Prepend(Lnn5)
-	node2.Prepend(Lnn6)
+// 	node2.Prepend(Lnn)
+// 	node2.Prepend(Lnn1)
+// 	node2.Prepend(Lnn2)
+// 	node2.Prepend(Lnn3)
+// 	node2.Prepend(Lnn4)
+// 	node2.Prepend(Lnn5)
+// 	node2.Prepend(Lnn6)
 
-	node := Node{}
-	Ln := &ListNode{Val: 9}
-	Ln1 := &ListNode{Val: 9}
-	Ln2 := &ListNode{Val: 9}
-	Ln3 := &ListNode{Val: 9}
+// 	node := Node{}
+// 	Ln := &ListNode{Val: 9}
+// 	Ln1 := &ListNode{Val: 9}
+// 	Ln2 := &ListNode{Val: 9}
+// 	Ln3 := &ListNode{Val: 9}
 
-	node.Prepend(Ln)
-	node.Prepend(Ln1)
-	node.Prepend(Ln2)
-	node.Prepend(Ln3)
+// 	node.Prepend(Ln)
+// 	node.Prepend(Ln1)
+// 	node.Prepend(Ln2)
+// 	node.Prepend(Ln3)
 
-	a := addTwoNumbers(node2.Head, node.Head)
-	a.PrintNode()
-}
+// 	a := addTwoNumbers(node2.Head, node.Head)
+// 	a.PrintNode()
+// }
