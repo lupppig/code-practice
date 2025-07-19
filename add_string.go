@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func addStrings(num1 string, num2 string) string {
 
 	if num1 == "0" && num2 == "0" {
@@ -38,10 +36,4 @@ func addStrings(num1 string, num2 string) string {
 		j--
 	}
 	return string(result)
-}
-
-func main() {
-
-	fmt.Printf("%s", addStrings("456", "77"))
-
 }
