@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 /*
  * Complete the 'rotateLeft' function below.
  *
@@ -39,7 +37,7 @@ func rotateLeft(d int32, arr []int32) []int32 {
 	return arr
 }
 
-func main() {
-	arr := []int32{1, 2, 3, 4, 5}
-	fmt.Println(rotateLeft(1, arr))
-}
+// func main() {
+// 	arr := []int32{1, 2, 3, 4, 5}
+// 	fmt.Println(rotateLeft(1, arr))
+// }

@@ -50,11 +50,9 @@ func Multiply(num1 string, num2 string) string {
 }
 
 func Multiply2(num1 string, num2 string) string {
-
 	if num1 == "0" || num2 == "0" {
 		return "0"
 	}
-
 	n, m := len(num1), len(num2)
 	result := make([]int, n+m)
 	for i := n - 1; i >= 0; i-- {

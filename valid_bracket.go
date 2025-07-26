@@ -1,16 +1,8 @@
 package main
 
 func isValid(s string) bool {
-
-	// [] () {}  true
-	// [} false
-	// ({}) true
-	// [({})] true
-	// // [({})]{} true
-
 	mapBrack := map[rune]rune{')': '(', '}': '{', ']': '['}
 	stack := []rune{}
-
 	for _, char := range s {
 		switch char {
 		case '(', '{', '[':
@@ -20,7 +12,6 @@ func isValid(s string) bool {
 				return false
 			}
 			stack = stack[:len(stack)-1]
-
 		}
 	}
 
