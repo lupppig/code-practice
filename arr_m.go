@@ -1,9 +1,5 @@
 package main
 
-import (
-	"fmt"
-)
-
 /*
  * Complete the 'arrayManipulation' function below.
  *
