@@ -1,14 +1,5 @@
 package main
 
-/*
- * Complete the 'rotateLeft' function below.
- *
- * The function is expected to return an INTEGER_ARRAY.
- * The function accepts following parameters:
- *  1. INTEGER d
- *  2. INTEGER_ARRAY arr
- */
-
 func rotateLeft(d int32, arr []int32) []int32 {
 	rotate := d % int32(len(arr))
 	lenArr := len(arr) - 1

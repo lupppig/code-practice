@@ -36,11 +36,11 @@ func arrayManipulation(n int32, queries [][]int32) int64 {
 	return max
 }
 
-func main() {
-	queries := [][]int32{
-		{1, 2, 100},
-		{2, 5, 100},
-		{3, 4, 100},
-	}
-	fmt.Println(arrayManipulation(5, queries))
-}
+// func main() {
+// 	queries := [][]int32{
+// 		{1, 2, 100},
+// 		{2, 5, 100},
+// 		{3, 4, 100},
+// 	}
+// 	fmt.Println(arrayManipulation(5, queries))
+// }
