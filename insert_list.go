@@ -24,7 +24,9 @@ func (ll *SinglyLinkedList) insertNodeAtHead(data int32) {
 
 func printLinkedList(llist *SinglyLinkedListNode) {
 	for llist != nil {
-		fmt.Println(llist.data)
+		fmt.Printf("%d->", llist.data)
 		llist = llist.next
 	}
+
+	fmt.Println()
 }

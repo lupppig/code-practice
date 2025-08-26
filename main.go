@@ -2,41 +2,69 @@ package main
 
 import (
 	"bufio"
+	"fmt"
+	"io"
 	"os"
 	"strconv"
 	"strings"
 )
 
+func printSinglyLinkedList(node *SinglyLinkedListNode, sep string, writer *bufio.Writer) {
+	for node != nil {
+		fmt.Fprintf(writer, "%d", node.data)
+
+		node = node.next
+
+		if node != nil {
+			fmt.Fprintf(writer, sep)
+		}
+	}
+}
+
 func main() {
 	reader := bufio.NewReaderSize(os.Stdin, 1024*1024)
 
-	inputVal, err := readLine(reader)
-	checkOnErr(err)
+	stdout, err := os.Create(os.Getenv("OUTPUT_PATH"))
+	checkError(err)
 
-	intCount, err := strconv.ParseInt(inputVal, 10, 32)
-	checkOnErr(err)
+	defer stdout.Close()
 
-	llist := &SinglyLinkedList{}
-	for i := 0; i < int(intCount); i++ {
-		inputVal, err := readLine(reader)
-		checkOnErr(err)
-		intCount, err := strconv.ParseInt(inputVal, 10, 64)
-		checkOnErr(err)
-		llist.insertNodeAtHead(int32(intCount))
+	writer := bufio.NewWriterSize(stdout, 1024*1024)
+
+	llistCount, err := strconv.ParseInt(readLine(reader), 10, 64)
+	checkError(err)
+
+	llist := SinglyLinkedList{}
+	for i := 0; i < int(llistCount); i++ {
+		llistItemTemp, err := strconv.ParseInt(readLine(reader), 10, 64)
+		checkError(err)
+		llistItem := int32(llistItemTemp)
+		llist.insertNodeIntoSinglyLinkedList(llistItem)
 	}
 	printLinkedList(llist.head)
 
+	positionTemp, err := strconv.ParseInt(readLine(reader), 10, 64)
+	checkError(err)
+	position := int32(positionTemp)
+
+	llist1 := deleteNode(llist.head, position)
+	printSinglyLinkedList(llist1, "->", writer)
+	printLinkedList(llist1)
+	fmt.Fprintf(writer, "\n")
+
+	writer.Flush()
 }
 
-func readLine(reader *bufio.Reader) (string, error) {
+func readLine(reader *bufio.Reader) string {
 	str, _, err := reader.ReadLine()
-	if err != nil {
-		return "", err
+	if err == io.EOF {
+		return ""
 	}
-	return strings.Trim(string(str), "\r\n"), nil
+
+	return strings.TrimRight(string(str), "\r\n")
 }
 
-func checkOnErr(err error) {
+func checkError(err error) {
 	if err != nil {
 		panic(err)
 	}
