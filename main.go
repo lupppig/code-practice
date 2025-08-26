@@ -41,18 +41,10 @@ func main() {
 		llistItem := int32(llistItemTemp)
 		llist.insertNodeIntoSinglyLinkedList(llistItem)
 	}
-	printLinkedList(llist.head)
-	reversePrint(llist.head)
 
-	positionTemp, err := strconv.ParseInt(readLine(reader), 10, 64)
-	checkError(err)
-	position := int32(positionTemp)
-
-	llist1 := deleteNode(llist.head, position)
+	llist1 := reverse(llist.head)
 	printSinglyLinkedList(llist1, "->", writer)
-	printLinkedList(llist1)
 	fmt.Fprintf(writer, "\n")
-
 	writer.Flush()
 }
 
