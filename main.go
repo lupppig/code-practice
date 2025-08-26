@@ -42,6 +42,7 @@ func main() {
 		llist.insertNodeIntoSinglyLinkedList(llistItem)
 	}
 	printLinkedList(llist.head)
+	reversePrint(llist.head)
 
 	positionTemp, err := strconv.ParseInt(readLine(reader), 10, 64)
 	checkError(err)
