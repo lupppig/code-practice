@@ -9,6 +9,16 @@ import (
 	"strings"
 )
 
+type SinglyLinkedListNode struct {
+	data int32
+	next *SinglyLinkedListNode
+}
+
+type SinglyLinkedList struct {
+	head *SinglyLinkedListNode
+	tail *SinglyLinkedListNode
+}
+
 func printSinglyLinkedList(node *SinglyLinkedListNode, sep string, writer *bufio.Writer) {
 	for node != nil {
 		fmt.Fprintf(writer, "%d", node.data)
@@ -31,19 +41,38 @@ func main() {
 
 	writer := bufio.NewWriterSize(stdout, 1024*1024)
 
-	llistCount, err := strconv.ParseInt(readLine(reader), 10, 64)
+	testCoun, err := strconv.ParseInt(readLine(reader), 10, 64)
 	checkError(err)
 
-	llist := SinglyLinkedList{}
-	for i := 0; i < int(llistCount); i++ {
-		llistItemTemp, err := strconv.ParseInt(readLine(reader), 10, 64)
+	for i := 0; i < int(testCoun); i++ {
+		llist := SinglyLinkedList{}
+		llist1 := SinglyLinkedList{}
+		llistCount, err := strconv.ParseInt(readLine(reader), 10, 64)
 		checkError(err)
-		llistItem := int32(llistItemTemp)
-		llist.insertNodeIntoSinglyLinkedList(llistItem)
+
+		for i := 0; i < int(llistCount); i++ {
+			llistItemTemp, err := strconv.ParseInt(readLine(reader), 10, 64)
+			checkError(err)
+			llistItem := int32(llistItemTemp)
+			llist.insertNodeIntoSinglyLinkedList(llistItem)
+		}
+
+		llistCount, err = strconv.ParseInt(readLine(reader), 10, 64)
+		checkError(err)
+
+		for i := 0; i < int(llistCount); i++ {
+			llistItemTemp, err := strconv.ParseInt(readLine(reader), 10, 64)
+			checkError(err)
+			llistItem := int32(llistItemTemp)
+			llist1.insertNodeIntoSinglyLinkedList(llistItem)
+		}
+
+		compare_list := compare_lists(llist.head, llist1.head)
+
+		fmt.Fprintf(writer, "%d\n", compare_list)
 	}
 
-	llist1 := reverse(llist.head)
-	printSinglyLinkedList(llist1, "->", writer)
+	fmt.Println()
 	fmt.Fprintf(writer, "\n")
 	writer.Flush()
 }

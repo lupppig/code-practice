@@ -2,16 +2,6 @@ package main
 
 import "fmt"
 
-type SinglyLinkedListNode struct {
-	data int32
-	next *SinglyLinkedListNode
-}
-
-type SinglyLinkedList struct {
-	head *SinglyLinkedListNode
-	tail *SinglyLinkedListNode
-}
-
 func (ll *SinglyLinkedList) insertNodeAtHead(data int32) {
 	newNode := &SinglyLinkedListNode{data: data}
 	if (ll.head) == nil {
