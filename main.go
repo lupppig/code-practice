@@ -26,7 +26,7 @@ func printSinglyLinkedList(node *SinglyLinkedListNode, sep string, writer *bufio
 		node = node.next
 
 		if node != nil {
-			fmt.Fprintf(writer, sep)
+			fmt.Fprint(writer, sep)
 		}
 	}
 }
@@ -44,9 +44,10 @@ func main() {
 	testCoun, err := strconv.ParseInt(readLine(reader), 10, 64)
 	checkError(err)
 
+	llist := SinglyLinkedList{}
+	llist1 := SinglyLinkedList{}
+
 	for i := 0; i < int(testCoun); i++ {
-		llist := SinglyLinkedList{}
-		llist1 := SinglyLinkedList{}
 		llistCount, err := strconv.ParseInt(readLine(reader), 10, 64)
 		checkError(err)
 
@@ -67,12 +68,10 @@ func main() {
 			llist1.insertNodeIntoSinglyLinkedList(llistItem)
 		}
 
-		compare_list := compare_lists(llist.head, llist1.head)
-
-		fmt.Fprintf(writer, "%d\n", compare_list)
 	}
 
-	fmt.Println()
+	merge_list := mergeLists(llist.head, llist1.head)
+	printSinglyLinkedList(merge_list, "->", writer)
 	fmt.Fprintf(writer, "\n")
 	writer.Flush()
 }
