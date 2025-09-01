@@ -22,11 +22,9 @@ type SinglyLinkedList struct {
 func printSinglyLinkedList(node *SinglyLinkedListNode, sep string, writer *bufio.Writer) {
 	for node != nil {
 		fmt.Fprintf(writer, "%d", node.data)
-
 		node = node.next
-
 		if node != nil {
-			fmt.Fprint(writer, sep)
+			fmt.Fprintf(writer, sep)
 		}
 	}
 }
@@ -41,16 +39,15 @@ func main() {
 
 	writer := bufio.NewWriterSize(stdout, 1024*1024)
 
-	testCoun, err := strconv.ParseInt(readLine(reader), 10, 64)
+	tTemp, err := strconv.ParseInt(readLine(reader), 10, 64)
 	checkError(err)
+	t := int32(tTemp)
 
-	llist := SinglyLinkedList{}
-	llist1 := SinglyLinkedList{}
-
-	for i := 0; i < int(testCoun); i++ {
+	for tItr := 0; tItr < int(t); tItr++ {
 		llistCount, err := strconv.ParseInt(readLine(reader), 10, 64)
 		checkError(err)
 
+		llist := SinglyLinkedList{}
 		for i := 0; i < int(llistCount); i++ {
 			llistItemTemp, err := strconv.ParseInt(readLine(reader), 10, 64)
 			checkError(err)
@@ -58,21 +55,12 @@ func main() {
 			llist.insertNodeIntoSinglyLinkedList(llistItem)
 		}
 
-		llistCount, err = strconv.ParseInt(readLine(reader), 10, 64)
-		checkError(err)
+		llist1 := removeDuplicates(llist.head)
 
-		for i := 0; i < int(llistCount); i++ {
-			llistItemTemp, err := strconv.ParseInt(readLine(reader), 10, 64)
-			checkError(err)
-			llistItem := int32(llistItemTemp)
-			llist1.insertNodeIntoSinglyLinkedList(llistItem)
-		}
-
+		printSinglyLinkedList(llist1, " ", writer)
+		fmt.Fprintf(writer, "\n")
 	}
 
-	merge_list := mergeLists(llist.head, llist1.head)
-	printSinglyLinkedList(merge_list, "->", writer)
-	fmt.Fprintf(writer, "\n")
 	writer.Flush()
 }
 
