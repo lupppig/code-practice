@@ -9,8 +9,6 @@ import (
 	"strings"
 )
 
-
-
 type DoublyLinkedListNode struct {
 	data int32
 	next *DoublyLinkedListNode
@@ -77,11 +75,7 @@ func main() {
 			llist.insertNodeIntoDoublyLinkedList(llistItem)
 		}
 
-		dataTemp, err := strconv.ParseInt(readLine(reader), 10, 64)
-		checkError(err)
-		data := int32(dataTemp)
-
-		llist1 := sortedInsert(llist.head, data)
+		llist1 := reverseDD(llist.head)
 
 		printDoublyLinkedList(llist1, " ", writer)
 		fmt.Fprintf(writer, "\n")
