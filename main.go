@@ -9,20 +9,42 @@ import (
 	"strings"
 )
 
-type SinglyLinkedListNode struct {
+
+
+type DoublyLinkedListNode struct {
 	data int32
-	next *SinglyLinkedListNode
+	next *DoublyLinkedListNode
+	prev *DoublyLinkedListNode
 }
 
-type SinglyLinkedList struct {
-	head *SinglyLinkedListNode
-	tail *SinglyLinkedListNode
+type DoublyLinkedList struct {
+	head *DoublyLinkedListNode
+	tail *DoublyLinkedListNode
 }
 
-func printSinglyLinkedList(node *SinglyLinkedListNode, sep string, writer *bufio.Writer) {
+func (doublyLinkedList *DoublyLinkedList) insertNodeIntoDoublyLinkedList(nodeData int32) {
+	node := &DoublyLinkedListNode{
+		next: nil,
+		prev: nil,
+		data: nodeData,
+	}
+
+	if doublyLinkedList.head == nil {
+		doublyLinkedList.head = node
+	} else {
+		doublyLinkedList.tail.next = node
+		node.prev = doublyLinkedList.tail
+	}
+
+	doublyLinkedList.tail = node
+}
+
+func printDoublyLinkedList(node *DoublyLinkedListNode, sep string, writer *bufio.Writer) {
 	for node != nil {
 		fmt.Fprintf(writer, "%d", node.data)
+
 		node = node.next
+
 		if node != nil {
 			fmt.Fprintf(writer, sep)
 		}
@@ -47,17 +69,21 @@ func main() {
 		llistCount, err := strconv.ParseInt(readLine(reader), 10, 64)
 		checkError(err)
 
-		llist := SinglyLinkedList{}
+		llist := DoublyLinkedList{}
 		for i := 0; i < int(llistCount); i++ {
 			llistItemTemp, err := strconv.ParseInt(readLine(reader), 10, 64)
 			checkError(err)
 			llistItem := int32(llistItemTemp)
-			llist.insertNodeIntoSinglyLinkedList(llistItem)
+			llist.insertNodeIntoDoublyLinkedList(llistItem)
 		}
 
-		llist1 := removeDuplicates(llist.head)
+		dataTemp, err := strconv.ParseInt(readLine(reader), 10, 64)
+		checkError(err)
+		data := int32(dataTemp)
 
-		printSinglyLinkedList(llist1, " ", writer)
+		llist1 := sortedInsert(llist.head, data)
+
+		printDoublyLinkedList(llist1, " ", writer)
 		fmt.Fprintf(writer, "\n")
 	}
 
